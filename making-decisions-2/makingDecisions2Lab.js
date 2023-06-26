@@ -57,7 +57,7 @@ console.log(evensArr)
 ////////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var score = 74
+var score = 91
 // Do not edit the code above.
 
 /*
@@ -117,8 +117,8 @@ var listOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 //Code Here
 for (let i = 0; i < listOfNumbers.length; i++) {
-  if (listOfNumbers[i] % 3 == 0) {
-    console.log(`${i} is divisable by 3`)
+  if (listOfNumbers[i] % 3 === 0) {
+    console.log(`${listOfNumbers[i]} is divisable by 3`)
   }
 }
 

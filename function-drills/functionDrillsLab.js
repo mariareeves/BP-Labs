@@ -412,10 +412,10 @@ function pond() {
 let globalScope = ['duck']
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = ['rubberDuck',]
+let bathroomScope = ['duck', 'rubberDuck',] // it has access to duck bc its global and the local scope inside the functin
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = ['sailorDuck'] // if 'rubberDuck was passed as a parameter in the bathtub function, then it would have access to it 
+let bathtubScope = ['duck', 'rubberDuck', 'sailorDuck']  // it has access to duck bc its global, the rubberduck bc its above the inner function, and sailorduck bc its local scope
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = ['realDuck']
+let pondScope = ['duck', 'realDuck'] // it has access to duck bc its glocal and real duck bc its local 

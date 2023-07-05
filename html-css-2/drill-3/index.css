@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    position: sticky;
+}
+
+header {
+    background-color: lightgrey;
+    width: 100%;
+    height: 5rem;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#blue-square {
+    background-color: rgb(89, 149, 213);
+    width: 50px;
+    height: 50px;
+
+}
+
+.container-1 {
+    padding: 40px;
+    margin-bottom: 10px;
+}
+
+p {
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+#parent {
+    background-color: red;
+
+}
+
+.child {
+    height: 12rem;
+}
+
+.child:nth-child(1) {
+    background-color: rgb(89, 149, 213);
+}
+
+.child:nth-child(2) {
+    background-color: rgb(103, 227, 196);
+}
+
+.child:nth-child(3) {
+    background-color: rgb(189, 214, 131);
+}
+
+.child:nth-child(4) {
+    background-color: rgb(231, 221, 36);
+}
+
+
+.question-button {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+button {
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+}

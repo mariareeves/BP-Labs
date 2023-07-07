@@ -244,6 +244,7 @@ queryBtn.addEventListener('click', sendQuery)
 // CODE HERE 
 function createFood(evt) {
     evt.preventDefault() // prevent the default behavior 
+
     const foodInput = document.querySelector('#food-input')
     const foodList = document.querySelector('#food-list');
 
@@ -254,12 +255,20 @@ function createFood(evt) {
 
     axios.post(`${baseURL}/food`, body)
         .then(res => {
-            console.log(res.data)
-
-            const newFoodItem = document.createElement('p')
-            newFoodItem.textContent = res.data
-            newFoodItem.style.display = 'block'
-            document.body.appendChild(newFoodItem)
+            // console.log(res.data)
+            if (Array.isArray(res.data)) {
+                // If response data is an array of food items
+                res.data.forEach(foodItem => {
+                    const newFoodItem = document.createElement('li');
+                    newFoodItem.textContent = foodItem;
+                    foodList.appendChild(newFoodItem);
+                });
+            } else {
+                // If response data is a single food item
+                const newFoodItem = document.createElement('li');
+                newFoodItem.textContent = res.data;
+                foodList.appendChild(newFoodItem);
+            }
 
             // clear the input field
             foodInput.value = '';
@@ -270,6 +279,22 @@ function createFood(evt) {
             console.log(err)
         })
 
+}
+
+
+
+function displayFoodList() {
+    const foodList = document.querySelector('#food-list');
+    const foodItems = Array.from(foodList.getElementsByTagName('li'));
+    console.log(foodItems);
+
+    // Clear the food list
+    foodList.innerHTML = '';
+
+    // Append the food items back to the food list
+    foodItems.forEach(foodItem => {
+        foodList.appendChild(foodItem);
+    });
 }
 
 const form = document.querySelector('form');

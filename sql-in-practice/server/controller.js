@@ -36,7 +36,7 @@ module.exports = {
         sequelize.query(`
         update cc_appointments set
         approved = true
-        where appt_id = ${apptId}
+        where appt_id = ${apptId};
 
         insert into cc_emp_appts (emp_id, appt_id)
         values (${nextEmp}, ${apptId}),
@@ -52,7 +52,7 @@ module.exports = {
         sequelize.query(`
             select * from cc_users as u 
             join cc_clients as c 
-            on c.user_id = u.user_id
+            on c.user_id = u.user_id;
         `)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err))
@@ -78,19 +78,21 @@ module.exports = {
         join cc_employees as e on e.emp_id = ea.emp_id
         join cc_users as u on e.user_id = u.user_id
         where a.approved = true and a.completed = true
-        order by date desc;
+        order by a.date desc;
         `)
             .then(dbRes => {
                 console.log(dbRes[0])
                 res.status(200).send(dbRes[0])
             })
+            .catch(err => console.log(err))
     },
+
     completeAppointment: (req, res) => {
         let { apptId } = req.body
         sequelize.query(`
             update cc_appointments set
             completed = true
-            where appt_id = ${apptId}
+            where appt_id = ${apptId};
         `)
             .then(dbRes => {
                 console.log(dbRes[0])
